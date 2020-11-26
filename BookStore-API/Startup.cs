@@ -14,7 +14,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using AutoMapper;
 using BookStore_API.Contracts;
+using BookStore_API.Mappings;
 using BookStore_API.Services;
 using Microsoft.OpenApi.Models;
 
@@ -35,7 +37,9 @@ namespace BookStore_API
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -46,6 +50,8 @@ namespace BookStore_API
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddSwaggerGen(c =>
             {
