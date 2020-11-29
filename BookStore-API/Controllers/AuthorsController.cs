@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BookStore_API.Contracts;
+using BookStore_API.Data;
 using BookStore_API.DTOs;
 
 namespace BookStore_API.Controllers
@@ -84,6 +85,49 @@ namespace BookStore_API.Controllers
 
             }
 
+        }
+
+        /// <summary>
+        /// Creates an author
+        /// </summary>
+        /// <param name="authorDto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Create([FromBody] AuthorCreateDTO authorDto)
+        {
+            try
+            {
+                _logger.LogInfo("Author Submission attempted");
+                if (authorDto == null)
+                {
+                    _logger.LogWarn("Empty Request was submitted");
+                    return BadRequest(ModelState);
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogWarn("Author data was Incomplete");
+                    return BadRequest(ModelState);
+                }
+
+                var author = _mapper.Map<Author>(authorDto);
+
+                var isSuccess = await _authorRepository.Create(author);
+                if (!isSuccess)
+                {
+                    return InternalError("Author creation failed");
+                }
+                _logger.LogInfo("Author created successfully");
+                return Created("Create", new {author});
+
+            }
+            catch (Exception e)
+            {
+                return InternalError($"{e.Message} - {e.InnerException}");
+            }
         }
 
         private ObjectResult InternalError(string message)
