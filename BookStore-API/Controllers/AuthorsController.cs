@@ -42,7 +42,7 @@ namespace BookStore_API.Controllers
         {
             try
             {
-                _logger.LogInfo("Attemptend Get All Authors");
+                _logger.LogInfo("Attempted Get All Authors");
                 var authors = await _authorRepository.FindAll();
                 var response = _mapper.Map<IList<AuthorDTO>>(authors);
                 _logger.LogInfo("Successfully got all Authors");
@@ -220,7 +220,6 @@ namespace BookStore_API.Controllers
                 return InternalError($"{e.Message} - {e.InnerException}");
             }
         }
-        
 
         private ObjectResult InternalError(string message)
         {
