@@ -1,0 +1,8 @@
+2020-12-05 06:52:25.6285 INFO  Authors - GetAuthors: Attempted Call
+2020-12-05 06:52:27.1628 INFO  Authors - GetAuthors: Successful
+2020-12-05 07:11:49.7339 INFO Books - GetBooks: Attempted call
+2020-12-05 07:11:51.4214 ERROR Books - GetBooks: Unable to cast object of type 'System.Decimal' to type 'System.Double'. - 
+2020-12-05 07:15:00.0622 INFO Books - GetBooks: Attempted call
+2020-12-05 07:15:01.5498 INFO Books - GetBooks: Successful
+2020-12-05 07:15:43.6824 INFO  Authors - GetAuthors: Attempted Call
+2020-12-05 07:15:43.7840 INFO  Authors - GetAuthors: Successful
