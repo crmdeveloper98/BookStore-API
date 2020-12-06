@@ -1,0 +1,38 @@
+2020-12-06 07:33:34.7454 INFO Books - Create: Create Attempted
+2020-12-06 07:33:37.0711 ERROR An error occurred while updating the entries. See the inner exception for details. - Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Books_Authors". The conflict occurred in database "BookStore", table "dbo.Authors", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:9048ff6e-2a48-429d-b903-6b7fd3f0d343
+Error Number:547,State:0,Class:16
+2020-12-06 07:33:52.6313 INFO Books - GetBooks: Attempted call
+2020-12-06 07:33:52.9593 INFO Books - GetBooks: Successful
+2020-12-06 07:42:40.5857 INFO Books - GetBook: Attemptend call for id: 20
+2020-12-06 07:42:40.7259 INFO Books - GetBook: retrieved record with id: 20
+2020-12-06 07:43:34.4497 INFO Books - GetBook: Attemptend call for id: 23
+2020-12-06 07:43:34.5064 INFO Books - GetBook: retrieved record with id: 23
+2020-12-06 07:44:06.5741 INFO Books - GetBook: Attemptend call for id: 25
+2020-12-06 07:44:06.6012 INFO Books - GetBook: retrieved record with id: 25
+2020-12-06 07:44:32.4809 INFO Books - GetBook: Attemptend call for id: 250
+2020-12-06 07:44:32.5058 WARN Books - GetBook: failed to retrieve record with id: 250
+2020-12-06 07:51:06.2937 INFO Authors - GetAuthor: Attempted call for id:3
+2020-12-06 07:51:07.8196 INFO Authors - GetAuthor: retrieved record with id:3
+2020-12-06 07:52:11.7963 INFO Authors - GetAuthor: Attempted call for id:33
+2020-12-06 07:52:11.8463 WARN Authors - GetAuthor: failed to retrieve record with id:33
+2020-12-06 07:53:40.9015 INFO Authors - Delete: Author with id: 500 Delete Attempted
+2020-12-06 07:53:40.9608 WARN Authors - Delete: Author with id: 500 was not found
+2020-12-06 07:58:41.3840 INFO Books - Create: Create Attempted
+2020-12-06 07:58:41.6325 INFO Books - Create: book created successfully
+2020-12-06 07:59:11.2617 INFO Books - GetBooks: Attempted call
+2020-12-06 07:59:11.3345 INFO Books - GetBooks: Successful
+2020-12-06 08:00:07.3221 INFO Books - Delete: Book with id: 34 Delete Attempted
+2020-12-06 08:00:07.4017 INFO Books - Delete: Book with id: 34 was successfully deleted
