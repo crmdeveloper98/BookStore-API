@@ -1,0 +1,8 @@
+2020-12-13 08:13:56.0154 INFO  Authors - GetAuthors: Attempted Call
+2020-12-13 08:13:56.2251 INFO  Authors - GetAuthors: Successful
+2020-12-13 08:14:53.0759 INFO  Authors - GetAuthors: Attempted Call
+2020-12-13 08:14:53.1145 INFO  Authors - GetAuthors: Successful
+2020-12-13 08:18:28.9319 INFO  Authors - GetAuthors: Attempted Call
+2020-12-13 08:18:28.9586 INFO  Authors - GetAuthors: Successful
+2020-12-13 08:19:20.2148 INFO Users - Login: Login attempt from User admin
+2020-12-13 08:19:20.4761 INFO Users - Login: admin Successfully authenticated
