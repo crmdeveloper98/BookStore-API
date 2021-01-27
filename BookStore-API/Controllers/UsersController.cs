@@ -35,7 +35,7 @@ namespace BookStore_API.Controllers
             _logger = logger;
             _config = config;
         }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -56,8 +56,15 @@ namespace BookStore_API.Controllers
 
                 if (!result.Succeeded)
                 {
-                    _logger.LogError($"{location}: {username} User registration Attempt failed");
+                    foreach (var error in result.Errors)
+                    {
+                        _logger.LogError($"{location}: {error.Code} - {error.Description}");
+                    }
+
+                    return InternalError($"{location}: {username} User registration Attempt failed");
                 }
+
+                return Ok(new {result.Succeeded});
             }
             catch (Exception e)
             {
@@ -65,7 +72,7 @@ namespace BookStore_API.Controllers
             }
 
         }
-
+        
         /// <summary>
         /// User login endpoint
         /// </summary>
