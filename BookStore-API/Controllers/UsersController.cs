@@ -60,11 +60,11 @@ namespace BookStore_API.Controllers
                     {
                         _logger.LogError($"{location}: {error.Code} - {error.Description}");
                     }
-
                     return InternalError($"{location}: {username} User registration Attempt failed");
                 }
 
-                return Ok(new {result.Succeeded});
+                await _userManager.AddToRoleAsync(user, "Customer");
+                return Created("login",new { result.Succeeded });
             }
             catch (Exception e)
             {
@@ -100,7 +100,7 @@ namespace BookStore_API.Controllers
                     return Ok(new { token = tokenString });
                 }
                 _logger.LogWarn($"{location}: {username} Not authenticatied");
-                return Unauthorized();
+                return Unauthorized(userDto);
             }
             catch (Exception e)
             {
