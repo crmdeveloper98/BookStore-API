@@ -2,3 +2,7 @@
 2021-03-27 05:28:16.3952 DEBUG Got a value
 2021-03-27 05:28:48.3106 ERROR This is an error
 2021-03-27 05:29:00.6401 WARN This is a warning
+2021-03-27 06:01:19.6541 INFO Accessed Home Controller
+2021-03-27 06:01:25.9152 DEBUG Got a value
+2021-03-27 06:01:38.3368 ERROR This is an error
+2021-03-27 06:01:51.1632 WARN This is a warning
