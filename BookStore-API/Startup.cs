@@ -43,12 +43,12 @@ namespace BookStore_API
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            // Enable cross-platform access
             services.AddCors(o =>
             {
                 o.AddPolicy("CorsPolicy",
                     builder => builder.AllowAnyMethod()
                         .AllowAnyOrigin()
-                        .AllowAnyMethod()
                         .AllowAnyHeader());
             });
 

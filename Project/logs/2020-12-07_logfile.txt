@@ -1,2 +1,0 @@
-2020-12-07 07:21:24.6602 INFO Users - Login: Login attempt from User Customer5
-2020-12-07 07:21:24.7425 WARN Users - Login: Customer5 Not authenticatied
