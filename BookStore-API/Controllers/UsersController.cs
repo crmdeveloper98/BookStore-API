@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace BookStore_API.Controllers
 {
@@ -43,6 +44,8 @@ namespace BookStore_API.Controllers
         /// <returns></returns>
         [Route("register")]
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Register([FromBody] UserDTO userDto)
         {
             var location = GetControllerActionNames();
@@ -81,6 +84,9 @@ namespace BookStore_API.Controllers
         [Route("login")]
         [HttpPost]
         [AllowAnonymous]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Login([FromBody] UserDTO userDto)
         {
             var location = GetControllerActionNames();
@@ -123,7 +129,7 @@ namespace BookStore_API.Controllers
             claims.AddRange(roles.Select(r => new Claim(ClaimsIdentity.DefaultRoleClaimType,r)));
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-                _config["Jwt:Issuer"],
+                _config["Jwt:Audience"],
                 claims,
                 null,
                 expires: DateTime.Now.AddMinutes(5),

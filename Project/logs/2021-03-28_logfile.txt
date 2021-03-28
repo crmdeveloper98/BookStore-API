@@ -2,3 +2,15 @@
 2021-03-28 07:50:58.1857 DEBUG Home - Get: Got a value
 2021-03-28 07:51:24.7748 ERROR Home - Post: This is an error
 2021-03-28 07:51:34.7416 WARN Home - Delete: This is a warning
+2021-03-28 10:10:59.5725 INFO Users - Login: Login attempt from User customer2@gmail.com
+2021-03-28 10:10:59.8634 INFO Users - Login: customer2@gmail.com Successfully authenticated
+2021-03-28 10:18:01.7761 INFO Users - Login: Login attempt from User admin@bookstore.com
+2021-03-28 10:18:02.0502 INFO Users - Login: admin@bookstore.com Successfully authenticated
+2021-03-28 10:19:12.6759 INFO  Authors - GetAuthors: Attempted Call
+2021-03-28 10:19:12.7592 INFO  Authors - GetAuthors: Successful
+2021-03-28 13:07:14.0233 INFO Users - Login: Login attempt from User admin@bookstore.com
+2021-03-28 13:07:14.3300 INFO Users - Login: admin@bookstore.com Successfully authenticated
+2021-03-28 13:08:14.5418 INFO  Authors - GetAuthors: Attempted Call
+2021-03-28 13:08:14.6317 INFO  Authors - GetAuthors: Successful
+2021-03-28 13:08:44.1010 INFO Authors - GetAuthor: Attempted call for id:5
+2021-03-28 13:08:44.1533 INFO Authors - GetAuthor: retrieved record with id:5
