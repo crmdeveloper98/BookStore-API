@@ -28,7 +28,9 @@ namespace BookStore_API.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            _logger.LogInfo("Accessed Home Controller");
+            var controller = GetControllerActionNames();
+
+            _logger.LogInfo($"{controller}: Accessed Home Controller");
             return new string[] { "value1", "value2" };
         }
 
@@ -41,7 +43,8 @@ namespace BookStore_API.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            _logger.LogDebug("Got a value");
+            var controller = GetControllerActionNames();
+            _logger.LogDebug($"{controller}: Got a value");
             return "value";
         }
 
@@ -49,7 +52,8 @@ namespace BookStore_API.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
-            _logger.LogError("This is an error");
+            var controller = GetControllerActionNames();
+            _logger.LogError($"{controller}: This is an error");
         }
 
         // PUT api/<HomeController>/5
@@ -64,7 +68,16 @@ namespace BookStore_API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _logger.LogWarn("This is a warning");
+            var controller = GetControllerActionNames();
+            _logger.LogWarn($"{controller}: This is a warning");
+        }
+
+        private string GetControllerActionNames()
+        {
+            var controller = ControllerContext.ActionDescriptor.ControllerName;
+            var action = ControllerContext.ActionDescriptor.ActionName;
+
+            return $"{controller} - {action}";
         }
     }
 }

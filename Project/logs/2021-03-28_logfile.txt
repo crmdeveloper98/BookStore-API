@@ -1,0 +1,4 @@
+2021-03-28 07:50:52.3234 INFO Home - Get: Accessed Home Controller
+2021-03-28 07:50:58.1857 DEBUG Home - Get: Got a value
+2021-03-28 07:51:24.7748 ERROR Home - Post: This is an error
+2021-03-28 07:51:34.7416 WARN Home - Delete: This is a warning

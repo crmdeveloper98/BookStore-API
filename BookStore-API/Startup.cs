@@ -58,7 +58,7 @@ namespace BookStore_API
                     {
                         option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                         option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
- 
+
                     })
                 .AddJwtBearer(options =>
                 {
@@ -76,7 +76,7 @@ namespace BookStore_API
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1",new OpenApiInfo
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Book Store API",
                     Version = "v1",
@@ -97,9 +97,9 @@ namespace BookStore_API
 
         // This method gets called by the runtime.
         // Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, 
-            IWebHostEnvironment env, 
-            UserManager<IdentityUser> userManager, 
+        public void Configure(IApplicationBuilder app,
+            IWebHostEnvironment env,
+            UserManager<IdentityUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
@@ -118,7 +118,7 @@ namespace BookStore_API
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json","Book Store API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Store API");
                 c.RoutePrefix = "";
             });
 

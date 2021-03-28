@@ -145,6 +145,7 @@ namespace BookStore_API.Controllers
         [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update(int id, [FromBody] BookUpdateDTO bookDto)
         {
@@ -195,16 +196,17 @@ namespace BookStore_API.Controllers
         [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Delete(int id)
         {
             var location = GetControllerActionNames();
             try
             {
-                _logger.LogInfo($"{location}: Book with id: {id} Delete Attempted");
+                _logger.LogInfo($"{location}: Delete Attempted on record with id: {id}");
                 if (id < 1)
                 {
-                    _logger.LogWarn($"{location}: Book Delete failed with bad data");
+                    _logger.LogWarn($"{location}: Delete failed with bad data - id: {id}");
                     return BadRequest();
                 }
 
