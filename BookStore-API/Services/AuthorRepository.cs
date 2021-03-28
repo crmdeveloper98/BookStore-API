@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookStore_API.Contracts;
 using BookStore_API.Data;
-using Microsoft.AspNetCore.Identity.UI.V4.Pages.Internal.Account;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore_API.Services
