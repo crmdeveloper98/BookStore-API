@@ -63,7 +63,6 @@ namespace BookStore_API.Controllers
         /// <param name="id">author id</param>
         /// <returns>A single author</returns>
         [HttpGet("{id:int}")]
-        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
