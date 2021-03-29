@@ -6,11 +6,12 @@ namespace BookStore_UI.Models
     {
         [Required]
         [EmailAddress]
+        [Display(Name ="Email Address")]
         public string EmailAddress { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(50, ErrorMessage = "Your Password is limited to {2} to {1}", MinimumLength = 6)]
+        [StringLength(15, ErrorMessage = "Your Password is limited to {2} to {1}", MinimumLength = 6)]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
@@ -23,6 +24,7 @@ namespace BookStore_UI.Models
     {
         [Required]
         [EmailAddress]
+        [Display(Name ="Email Address")]
         public string EmailAddress { get; set; }
 
         [Required]

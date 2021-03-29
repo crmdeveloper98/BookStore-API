@@ -1,11 +1,7 @@
 ﻿using Blazored.LocalStorage;
 using BookStore_UI.Contracts;
 using BookStore_UI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace BookStore_UI.Service
 {
@@ -13,7 +9,8 @@ namespace BookStore_UI.Service
     {
         private readonly IHttpClientFactory _client;
         private readonly ILocalStorageService _localStorage;
-        public AuthorRepository(IHttpClientFactory client, ILocalStorageService localStorage) : base(client)//, localStorage)
+
+        public AuthorRepository(IHttpClientFactory client, ILocalStorageService localStorage) : base(client)
         {
             _client = client;
            _localStorage = localStorage;
