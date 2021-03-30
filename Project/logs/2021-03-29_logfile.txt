@@ -1,0 +1,9 @@
+2021-03-29 19:13:32.3745 INFO Users - Login: Login attempt from User admin@bookstore.com
+2021-03-29 19:13:32.6751 INFO Users - Login: admin@bookstore.com Successfully authenticated
+2021-03-29 19:14:02.7741 INFO Users - Login: Login attempt from User Customer3@gmail.com
+2021-03-29 19:14:02.8298 INFO Users - Login: Customer3@gmail.com Successfully authenticated
+2021-03-29 19:15:32.2505 INFO Users - Login: Login attempt from User Customer5@gmail.com
+2021-03-29 19:15:32.5032 INFO Users - Login: Customer5@gmail.com Successfully authenticated
+2021-03-29 19:18:19.1724 INFO Users - Register: Register attempt for User Customer6@gmail.com
+2021-03-29 19:18:37.5196 INFO Users - Login: Login attempt from User Customer6@gmail.com
+2021-03-29 19:18:37.6841 INFO Users - Login: Customer6@gmail.com Successfully authenticated

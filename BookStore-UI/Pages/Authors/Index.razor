@@ -9,7 +9,7 @@
     <div class="alert alert-dismissible alert-secondary">
         Loading data .....
     </div>
-    @*<LoadingMessage Message="Loading Authors" />*@
+    <LoadingMessage Message="Loading Authors" />
 }
 else
 {
@@ -25,7 +25,7 @@ else
         <div class="alert alert-dismissible alert-secondary">
             There are no authors in the data store. Click 'Create Author' to Begin
         </div>
-        @*<LoadingMessage Message="There are no authors in the data store. Click 'Create Author' to Begin " />*@
+        <LoadingMessage Message="There are no authors in the data store. Click 'Create Author' to Begin " />
     }
     else
     {
@@ -45,14 +45,14 @@ else
                         <td>@author.Lastname</td>
                         <td>
                             <a href="/authors/view/@author.Id" class="btn btn-primary">
-                                <span class="oi oi-book"></span>
+                                <span class="oi oi-book" title="View"></span>
                             </a>
                             <AuthorizeView Roles="Administrator">
                                 <a href="/authors/edit/@author.Id" class="btn btn-warning">
-                                    <span class="oi oi-pencil"></span>
+                                    <span class="oi oi-pencil" title="Edit"></span>
                                 </a>
                                 <a href="/authors/delete/@author.Id" class="btn btn-danger">
-                                    <span class="oi oi-delete"></span>
+                                    <span class="oi oi-delete" title="Delete"></span>
                                 </a>
                             </AuthorizeView>
                         </td>

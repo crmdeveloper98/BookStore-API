@@ -1,23 +1,23 @@
 ﻿@page "/authors/view/{Id}"
 @inject IAuthorRepository _repo
 @inject NavigationManager _navManager
-@inject IToastService _toastService
+@*@inject IToastService _toastService*@
 
 <h3 class="card-title">View Author Details</h3>
 <hr />
 <br />
-@if (int.Parse(Id) < 1 || string.IsNullOrWhiteSpace(Id))
+@if (Convert.ToInt32(Id) < 1 || string.IsNullOrWhiteSpace(Id))
 {
-    <ErrorMessage Message="Invalid Selection. Please Try Again" />
+    <ErrorMessage Message="Invalid Selection. Please Try Again" /> 
 }
 else if (Model == null)
 {
     <LoadingMessage Message="Loading Author Details" />
-}
+ }
 else
 {
-    _toastService.ShowInfo($"Now Viewing {Model.Firstname} {Model.Lastname}", "");
-    <div class="col-md-4">
+    // _toastService.ShowInfo($"Now Viewing {Model.Firstname} {Model.Lastname}", "");
+    <div class="col-md-6">
         <table class="table table-responsive">
             <tr>
                 <td>First Name</td>
@@ -37,7 +37,7 @@ else
         {
             <div class="alert alert-dismissible alert-secondary">
                 No Books for this Author
-            </div>
+            </div> 
         }
         else
         {
@@ -58,21 +58,22 @@ else
 }
 <br />
 
-
-<button @onclick="GoToEdit" class="btn btn-outline-warning">
-    <span class="oi oi-pencil"></span>
-    Edit Author
-</button>
-<button @onclick="GoToDelete" class="btn btn-outline-danger">
-    <span class="oi oi-circle-x"></span>
-    Delete Author
-</button>
+<AuthorizeView Roles="Administrator">
+    <button @onclick="GoToEdit" class="btn btn-outline-warning">
+        <span class="oi oi-pencil"></span>
+        Edit Author
+    </button>
+    <button @onclick="GoToDelete" class="btn btn-outline-danger">
+        <span class="oi oi-circle-x"></span>
+        Delete Author
+    </button>
+</AuthorizeView>
 <button @onclick="BackToList" class="btn btn-outline-secondary">
     <span class="oi oi-media-skip-backward"></span>
     Back To List
 </button>
 
-@code {
+@code { 
     [Parameter]
     public string Id { get; set; }
 
@@ -97,6 +98,5 @@ else
     private void GoToDelete()
     {
         _navManager.NavigateTo($"/authors/delete/{Model.Id}");
-    }
-
+    } 
 }
