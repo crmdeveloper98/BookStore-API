@@ -12,7 +12,7 @@
     <ErrorMessage Message="Somewthing Went Wrong With the Operation" />
 }
 
-@if (int.Parse(Id) < 1 || string.IsNullOrWhiteSpace(Id))
+@if (Convert.ToInt32(Id) < 1 || string.IsNullOrWhiteSpace(Id))
 {
     <ErrorMessage Message="Invalid Selection. Please Try Again" />
 }
@@ -89,7 +89,7 @@ else
 
     private async Task EditAuthor()
     {
-       isSuccess = await _repo.Update(Endpoints.AuthorsEndpoint, Model);
+       isSuccess = await _repo.Update(Endpoints.AuthorsEndpoint, Model, Model.Id);
         if (isSuccess)
         {
             //_toastService.ShowWarning("Author Updated Successfully", "");
