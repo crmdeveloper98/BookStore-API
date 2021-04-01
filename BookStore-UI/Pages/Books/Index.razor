@@ -1,6 +1,4 @@
 ﻿@page "/books/"
-@attribute [Authorize]
-
 @inject IBookRepository _repo
 @*@inject IToastService _toastService*@
 
@@ -33,21 +31,21 @@ else
         <table class="table table-responsive">
             <thead>
                 <tr>
-                    <th></th>
+                    @*<th></th>*@
                     <th>Title</th>
                     <th>ISBN</th>
                     <th>Price</th>
                     <th>Author</th>
-                    <th></th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var book in Model)
                 {
                     <tr>
-                        <td>
+                        @*<td>
                             <img src="uploads/@book.Image" class="img-thumbnail" style="height:100px;width:100px" />
-                        </td>
+                        </td>*@
                         <td>@book.Title</td>
                         <td>@book.Isbn</td>
                         <td>@string.Format("{0:C}", book.Price)</td>
