@@ -68,3 +68,9 @@
 2021-04-01 08:10:50.5475 INFO Books - GetBooks: Successful
 2021-04-01 08:10:52.8941 INFO Books - GetBook: Attemptend call for id: 15
 2021-04-01 08:10:52.9215 INFO Books - GetBook: retrieved record with id: 15
+2021-04-01 08:38:15.8941 INFO Users - Login: Login attempt from User admin@bookstore.com
+2021-04-01 08:38:16.1426 INFO Users - Login: admin@bookstore.com Successfully authenticated
+2021-04-01 08:38:35.6328 INFO  Authors - GetAuthors: Attempted Call
+2021-04-01 08:38:35.8216 INFO  Authors - GetAuthors: Successful
+2021-04-01 08:38:37.5512 INFO Authors - GetAuthor: Attempted call for id:1
+2021-04-01 08:38:37.5866 INFO Authors - GetAuthor: retrieved record with id:1
