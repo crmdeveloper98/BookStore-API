@@ -44,8 +44,8 @@ namespace BookStore_UI.Service
 
             var client = _client.CreateClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", await GetBearerToken());
-            HttpResponseMessage response = await client.SendAsync(request);
 
+            HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
                 return true;
@@ -59,8 +59,8 @@ namespace BookStore_UI.Service
 
             var client = _client.CreateClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", await GetBearerToken());
-            HttpResponseMessage response = await client.SendAsync(request);
 
+            HttpResponseMessage response = await client.SendAsync(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -77,7 +77,6 @@ namespace BookStore_UI.Service
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", await GetBearerToken());
 
             HttpResponseMessage response = await client.SendAsync(request);
-
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var content = await response.Content.ReadAsStringAsync();

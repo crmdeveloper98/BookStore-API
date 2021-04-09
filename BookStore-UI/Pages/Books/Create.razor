@@ -5,14 +5,15 @@
 @inject IAuthorRepository _authorRepo
 @inject IFileUpload _fileUpload
 @inject NavigationManager _navManager
-@*@inject IToastService _toastService*@
+@inject IToastService _toastService
 
 <h3>Create Book</h3>
 <hr />
 <br />
 @if (!isSuccess)
 {
-<ErrorMessage Message="Something Went Wrong With the Operation" />}
+    <ErrorMessage Message="Something Went Wrong With the Operation" />
+}
 
 <EditForm Model="Model" OnValidSubmit="HandleCreate">
     <DataAnnotationsValidator />
@@ -108,7 +109,7 @@
 @code 
 { 
     private Book Model = new Book();
-    private IList<Author> Authors;
+    private IList<Author> Authors = new List<Author>();
     private IFileListEntry file;
     private bool isSuccess = true;
     private bool isInvalidFileType = false;
@@ -132,13 +133,16 @@
 
                 _fileUpload.UploadFile(file, msFile, picName);
 
+
+
                 Model.Image = picName;
             }
 
             isSuccess = await _repo.Create(Endpoints.BooksEndpoint, Model);
+
             if (isSuccess)
             {
-                //_toastService.ShowSuccess("Book Created Successfully", "");
+                _toastService.ShowSuccess("Book Created Successfully", "");
                 BackToList();
             }
         }
@@ -153,6 +157,7 @@
             if (name.Contains("jpg") || name.Contains("png") || name.Contains("jpeg"))
             {
                 msFile = new MemoryStream();
+
                 await file.Data.CopyToAsync(msFile);
 
                 var reader = new StreamReader(file.Data);

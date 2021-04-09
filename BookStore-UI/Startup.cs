@@ -16,6 +16,7 @@ using BookStore_UI.Contracts;
 using BookStore_UI.Providers;
 using BookStore_UI.Service;
 using Microsoft.AspNetCore.Components.Authorization;
+using Blazored.Toast;
 
 namespace BookStore_UI
 {
@@ -35,6 +36,7 @@ namespace BookStore_UI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddBlazoredLocalStorage();
+            services.AddBlazoredToast();
             services.AddHttpClient();
             services.AddScoped<ApiAuthenticationStateProvider>();
             services.AddScoped<AuthenticationStateProvider>(p => p.GetRequiredService<ApiAuthenticationStateProvider>());

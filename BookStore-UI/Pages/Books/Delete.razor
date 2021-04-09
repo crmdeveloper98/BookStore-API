@@ -4,7 +4,7 @@
 @inject IBookRepository _repo
 @inject NavigationManager _navManager
 @inject IFileUpload _fileUpload
-@*@inject IToastService _toastService*@
+@inject IToastService _toastService
 
 <h3>Are You Sure You Want to Delete This Record?</h3>
 <hr />
@@ -99,7 +99,7 @@
         isSuccess = await _repo.Delete(Endpoints.BooksEndpoint, Model.Id);
         if (isSuccess)
         {
-            //_toastService.ShowError("Book Deleted Successfully", "");
+            _toastService.ShowError("Book Deleted Successfully", "");
             BackToList();
         }
 

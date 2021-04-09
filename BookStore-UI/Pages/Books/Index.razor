@@ -1,6 +1,6 @@
 ﻿@page "/books/"
 @inject IBookRepository _repo
-@*@inject IToastService _toastService*@
+@inject IToastService _toastService
 
 <h3>Index</h3>
 <hr />
@@ -12,10 +12,12 @@
 else
 {
     <AuthorizeView Roles="Administrator">
-        <a href="/books/create" class="btn btn-primary">
-            <span class="oi oi-plus"></span>
-            Create New Book
-        </a>
+        <div class="row float-right">
+            <a href="/books/create" class="btn btn-primary">
+                <span class="oi oi-plus"></span>
+                Create New Book
+            </a>
+        </div>     
     </AuthorizeView>
 
     <br />
@@ -28,7 +30,7 @@ else
      }
      else
      {
-        <table class="table table-responsive">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th></th>
@@ -44,7 +46,7 @@ else
                 {
                     <tr>
                         <td>
-                            <img src="uploads/@book.Image" class="img-thumbnail" style="height:25px;width:25px" />
+                            <img src="uploads/@book.Image" class="img-thumbnail" style="height:50px;width:50px" />
                         </td>
                         <td>@book.Title</td>
                         <td>@book.Isbn</td>
